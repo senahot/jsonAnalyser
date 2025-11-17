@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Analyser - Query JSON Data</title>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>🔍 JSON Analyser</h1>
+                <p class="tagline">Query and analyze JSON data in your browser</p>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="btn btn-icon" title="Toggle Theme">
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Panel: JSON Input -->
+            <section class="panel input-panel">
+                <div class="panel-header">
+                    <h2>JSON Input</h2>
+                    <div class="panel-actions">
+                        <button id="uploadBtn" class="btn btn-secondary" title="Upload JSON file">
+                            📁 Upload File
+                        </button>
+                        <input type="file" id="fileInput" accept=".json" hidden>
+                        <button id="formatBtn" class="btn btn-secondary" title="Format JSON">
+                            ✨ Format
+                        </button>
+                        <button id="clearInputBtn" class="btn btn-secondary" title="Clear input">
+                            🗑️ Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="editor-container">
+                        <textarea
+                            id="jsonInput"
+                            class="json-editor"
+                            placeholder='Enter or paste your JSON here...
+
+Example:
+[
+  {
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com",
+    "status": "active"
+  },
+  {
+    "name": "Jane Smith",
+    "age": 25,
+    "email": "jane@example.com",
+    "status": "inactive"
+  }
+]'
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+
+                    <div id="jsonError" class="error-message hidden"></div>
+
+                    <div class="input-stats">
+                        <span id="jsonStats" class="stats-text"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Query & Results -->
+            <section class="panel output-panel">
+                <!-- Query Section (Will be expanded in Week 2) -->
+                <div class="panel-header">
+                    <h2>Query (Coming in Week 2)</h2>
+                </div>
+                <div class="panel-body query-placeholder">
+                    <p class="info-text">Query interface will be added in Week 2</p>
+                </div>
+
+                <!-- Results Section -->
+                <div class="panel-header">
+                    <h2>Output</h2>
+                    <div class="panel-actions">
+                        <button id="copyOutputBtn" class="btn btn-secondary" title="Copy output" disabled>
+                            📋 Copy
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div id="outputContainer" class="output-container">
+                        <div class="placeholder-message">
+                            <p>👈 Enter JSON data on the left to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>
+                JSON Analyser v0.1 | Week 1: Foundation |
+                <span id="projectStatus">Building core functionality...</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "age": 30,
+    "email": "john@example.com",
+    "status": "active",
+    "role": "developer",
+    "joinDate": "2020-01-15",
+    "skills": ["JavaScript", "Python", "React"],
+    "address": {
+      "city": "New York",
+      "country": "USA",
+      "zipCode": "10001"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "age": 25,
+    "email": "jane@example.com",
+    "status": "active",
+    "role": "designer",
+    "joinDate": "2021-03-20",
+    "skills": ["Figma", "Photoshop", "Illustrator"],
+    "address": {
+      "city": "San Francisco",
+      "country": "USA",
+      "zipCode": "94102"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Bob Johnson",
+    "age": 35,
+    "email": "bob@example.com",
+    "status": "inactive",
+    "role": "manager",
+    "joinDate": "2019-06-10",
+    "skills": ["Leadership", "Agile", "Scrum"],
+    "address": {
+      "city": "Austin",
+      "country": "USA",
+      "zipCode": "78701"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Alice Williams",
+    "age": 28,
+    "email": "alice@example.com",
+    "status": "active",
+    "role": "developer",
+    "joinDate": "2020-11-05",
+    "skills": ["Java", "Spring", "Kubernetes"],
+    "address": {
+      "city": "Seattle",
+      "country": "USA",
+      "zipCode": "98101"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Charlie Brown",
+    "age": 32,
+    "email": "charlie@example.com",
+    "status": "active",
+    "role": "data scientist",
+    "joinDate": "2021-08-15",
+    "skills": ["Python", "TensorFlow", "SQL"],
+    "address": {
+      "city": "Boston",
+      "country": "USA",
+      "zipCode": "02101"
+    }
+  }
+]

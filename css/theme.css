@@ -1,0 +1,84 @@
+/* Theme Variables */
+
+:root {
+    /* Light Theme Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f7fa;
+    --bg-tertiary: #e9ecef;
+    --bg-editor: #fafbfc;
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+
+    --border-color: #d1d5db;
+    --border-focus: #3b82f6;
+
+    --accent-primary: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-light: #dbeafe;
+
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --error: #ef4444;
+    --error-light: #fee2e2;
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* JSON Syntax Highlighting */
+    --json-key: #0066cc;
+    --json-string: #2aa198;
+    --json-number: #d14;
+    --json-boolean: #aa5500;
+    --json-null: #999999;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-tertiary: #0f1419;
+    --bg-editor: #0d1117;
+
+    --text-primary: #e6e6e6;
+    --text-secondary: #b3b3b3;
+    --text-tertiary: #808080;
+
+    --border-color: #30363d;
+    --border-focus: #58a6ff;
+
+    --accent-primary: #58a6ff;
+    --accent-hover: #79c0ff;
+    --accent-light: #1f2937;
+
+    --success: #3fb950;
+    --success-light: #1a3a27;
+    --error: #f85149;
+    --error-light: #3a1a1a;
+    --warning: #d29922;
+    --warning-light: #3a2a1a;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+    /* JSON Syntax Highlighting for Dark */
+    --json-key: #79c0ff;
+    --json-string: #a5d6ff;
+    --json-number: #ff9492;
+    --json-boolean: #ffa657;
+    --json-null: #8b949e;
+}
+
+/* Transitions */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
