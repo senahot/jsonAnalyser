@@ -87,12 +87,6 @@ class App {
             fileInput.addEventListener('change', (e) => this.handleFileUpload(e));
         }
 
-        // Copy Output Button
-        const copyOutputBtn = document.getElementById('copyOutputBtn');
-        if (copyOutputBtn) {
-            copyOutputBtn.addEventListener('click', () => this.handleCopyOutput());
-        }
-
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         if (themeToggle) {
@@ -278,31 +272,6 @@ class App {
 
         // Reset file input
         event.target.value = '';
-    }
-
-    /**
-     * Handle copy output button click
-     */
-    async handleCopyOutput() {
-        const text = this.jsonParser.getOutputText();
-        if (!text) return;
-
-        const success = await copyToClipboard(text);
-        const copyBtn = document.getElementById('copyOutputBtn');
-
-        if (success) {
-            showNotification('Copied to clipboard', 'success');
-            // Visual feedback
-            if (copyBtn) {
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = '✓ Copied';
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                }, 2000);
-            }
-        } else {
-            showNotification('Failed to copy', 'error');
-        }
     }
 
     /**
