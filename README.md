@@ -40,8 +40,18 @@ A powerful, frontend-only web application for analyzing and querying JSON data d
 - ✅ Auto-detects available fields from JSON data
 - ✅ Apply query button to execute from builder
 
-### Coming Soon
-- 🚀 Week 4: Export (CSV/JSON), Save/Load queries, Query history, More sample datasets
+### Week 4: Export & Polish (Completed ✅)
+- ✅ Export to JSON with file download
+- ✅ Export to CSV with proper formatting
+- ✅ Save queries with name and description
+- ✅ Load saved queries from localStorage
+- ✅ Delete saved queries
+- ✅ Query history tracking (max 50 items)
+- ✅ Load queries from history
+- ✅ Clear query history
+- ✅ Share queries via URL parameters
+- ✅ Help/documentation modal
+- ✅ Additional sample datasets (products.json, orders.json)
 
 ## Getting Started
 
@@ -103,6 +113,47 @@ Click the theme button (🌙/☀️) in the header to switch between dark and li
 
 The builder automatically detects available fields from your JSON data!
 
+#### Export Results (Week 4)
+1. **Execute a Query**: First run a query to get results
+2. **Export Options**:
+   - **Export JSON**: Click "💾 Export JSON" to download results as JSON file
+   - **Export CSV**: Click "📊 Export CSV" to download as CSV (works best with array data)
+   - **Copy**: Click "📋 Copy" to copy results to clipboard
+
+Export buttons are automatically enabled when results are available.
+
+#### Save & Load Queries (Week 4)
+1. **Save Query**:
+   - Write or select a query
+   - Click "💾 Save" button
+   - Enter a name and optional description
+   - Click "Save" to store in browser
+2. **Load Saved Query**:
+   - Click "💾 Saved" button in header
+   - Browse your saved queries
+   - Click "📂 Load" to apply a query
+   - Click "🗑️ Delete" to remove a query
+3. **Query History**:
+   - Click "📜 History" button in header
+   - See recent queries (automatically saved)
+   - Click "📂 Load" to reuse a query
+   - Click "Clear History" to remove all
+
+#### Share Queries (Week 4)
+Share queries with others via URL:
+- Execute a query, then the URL will include `?q=your-query`
+- Share this URL with others to let them run the same query
+- Opening a URL with `?q=` parameter auto-loads and executes the query
+
+#### Help (Week 4)
+Click "❓ Help" button in header to see:
+- Getting started guide
+- Query mode explanations
+- Example queries
+- Keyboard shortcuts
+- Feature list
+- Sample datasets info
+
 ### Keyboard Shortcuts
 
 | Shortcut | Action |
@@ -136,10 +187,14 @@ jsonAnalyser/
 │   ├── jsonParser.js      # JSON validation/parsing/display
 │   ├── queryEngine.js     # JMESPath query execution
 │   ├── queryBuilder.js    # Visual query builder logic
+│   ├── results.js         # Export functionality (JSON/CSV)
+│   ├── storage.js         # localStorage management (queries/history)
 │   └── utils.js           # Utility functions
 ├── lib/                   # Third-party libraries (CDN)
 └── examples/
-    └── users.json         # Sample user dataset
+    ├── users.json         # Sample user dataset
+    ├── products.json      # Sample product catalog
+    └── orders.json        # Sample order data
 ```
 
 ### Browser Support
@@ -156,11 +211,11 @@ Modern browsers with ES6 module support required.
 - **Week 1: Foundation** - ✅ Completed (2025-11-17)
 - **Week 2: Query Engine** - ✅ Completed (2025-11-17)
 - **Week 3: Visual Query Builder** - ✅ Completed (2025-11-17)
+- **Week 4: Export & Polish** - ✅ Completed (2025-11-17)
+
+**PROJECT COMPLETE!** All planned features have been implemented and tested.
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for detailed development roadmap and progress.
-
-### Next Steps
-Week 4 will add export functionality (CSV/JSON), query save/load with history, and final polish with more sample datasets.
 
 ## Examples
 
@@ -213,6 +268,21 @@ Week 4 will add export functionality (CSV/JSON), query save/load with history, a
 - **Depth**: Nesting level of the JSON
 - **Items**: Number of items (for arrays)
 
+### Sample Datasets
+The project includes three sample datasets in the `examples/` directory:
+
+1. **users.json** - User profiles with personal info, skills, and addresses
+   - 5 users with varied data
+   - Good for: field selection, filtering, nested queries
+
+2. **products.json** - Product catalog with specs and pricing
+   - 8 products across different categories
+   - Good for: filtering by price/rating, sorting, aggregations
+
+3. **orders.json** - E-commerce orders with items and shipping
+   - 6 orders with customer and shipping data
+   - Good for: nested queries, array operations, complex filters
+
 ## Privacy & Security
 All processing happens in your browser. Your JSON data:
 - ✅ Never leaves your computer
@@ -230,8 +300,9 @@ MIT License - Feel free to use this project for learning or production.
 - [x] Week 1: Foundation (JSON input, validation, formatting)
 - [x] Week 2: Query Engine (JMESPath integration, direct queries)
 - [x] Week 3: Visual Query Builder (GUI for building queries)
-- [ ] Week 4: Export (CSV/JSON), Save/Load queries, Query history, Polish
-- [ ] Future: Advanced features (aggregations, schema validation, etc.)
+- [x] Week 4: Export (CSV/JSON), Save/Load queries, Query history, Polish
+
+**All planned features completed!** See [Future Enhancements](PROJECT_PLAN.md#future-enhancements-post-mvp) for potential additions.
 
 ---
 
