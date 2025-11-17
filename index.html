@@ -81,8 +81,17 @@ Example:
             <section class="panel output-panel">
                 <!-- Query Section -->
                 <div class="panel-header">
-                    <h2>JMESPath Query</h2>
+                    <h2>Query</h2>
                     <div class="panel-actions">
+                        <!-- Mode Toggle -->
+                        <div class="mode-toggle">
+                            <button id="codeMode" class="mode-btn active" title="Code mode">
+                                💻 Code
+                            </button>
+                            <button id="builderMode" class="mode-btn" title="Visual builder">
+                                🔧 Builder
+                            </button>
+                        </div>
                         <select id="exampleQuerySelect" class="form-select" style="max-width: 200px;">
                             <option value="">Load Example...</option>
                         </select>
@@ -95,7 +104,8 @@ Example:
                     </div>
                 </div>
 
-                <div class="panel-body query-section">
+                <!-- Code Mode (Default) -->
+                <div id="codeView" class="panel-body query-section">
                     <div class="query-input-container">
                         <textarea
                             id="queryInput"
@@ -122,6 +132,66 @@ Try selecting an example from the dropdown above!'
                     </div>
                 </div>
 
+                <!-- Builder Mode (Visual) -->
+                <div id="builderView" class="panel-body query-section hidden">
+                    <div class="builder-container">
+                        <!-- Operation Selector -->
+                        <div class="builder-section">
+                            <label class="builder-label">Operation</label>
+                            <select id="builderOperation" class="form-select">
+                                <option value="select">Select Fields</option>
+                                <option value="filter">Filter Data</option>
+                                <option value="count">Count Items</option>
+                                <option value="sort">Sort Data</option>
+                                <option value="complex">Complex Query</option>
+                            </select>
+                        </div>
+
+                        <!-- Fields Section (for Select) -->
+                        <div id="fieldsSection" class="builder-section">
+                            <label class="builder-label">Fields to Select</label>
+                            <div id="fieldsContainer" class="fields-container"></div>
+                            <button id="addFieldBtn" class="btn btn-secondary btn-sm">
+                                ➕ Add Field
+                            </button>
+                        </div>
+
+                        <!-- Filters Section (for Filter & Count) -->
+                        <div id="filtersSection" class="builder-section hidden">
+                            <label class="builder-label">Filter Conditions</label>
+                            <div id="filtersContainer" class="filters-container"></div>
+                            <button id="addFilterBtn" class="btn btn-secondary btn-sm">
+                                ➕ Add Filter
+                            </button>
+                        </div>
+
+                        <!-- Sort Section (for Sort) -->
+                        <div id="sortSection" class="builder-section hidden">
+                            <label class="builder-label">Sort By</label>
+                            <div class="sort-controls">
+                                <select id="sortField" class="form-select">
+                                    <option value="">Select field...</option>
+                                </select>
+                                <select id="sortDirection" class="form-select">
+                                    <option value="asc">Ascending</option>
+                                    <option value="desc">Descending</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Query Preview -->
+                        <div class="builder-section query-preview-section">
+                            <label class="builder-label">Generated Query</label>
+                            <div class="query-preview-container">
+                                <code id="queryPreview" class="query-preview">@</code>
+                            </div>
+                            <button id="buildQueryBtn" class="btn btn-primary btn-sm">
+                                ✨ Apply Query
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Results Section -->
                 <div class="panel-header">
                     <h2>Query Results</h2>
@@ -145,8 +215,8 @@ Try selecting an example from the dropdown above!'
         <!-- Footer -->
         <footer class="app-footer">
             <p>
-                JSON Analyser v0.2 | Week 2: Query Engine |
-                <span id="projectStatus">Query your JSON data with JMESPath!</span>
+                JSON Analyser v0.3 | Week 3: Visual Query Builder |
+                <span id="projectStatus">Build queries visually or with code!</span>
             </p>
         </footer>
     </div>

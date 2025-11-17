@@ -80,8 +80,8 @@ A frontend-only web application that allows users to input JSON data and query i
 
 ---
 
-### 🎨 Week 3: Visual Query Builder
-**Status:** PENDING
+### 🎨 Week 3: Visual Query Builder (COMPLETED)
+**Status:** ✅ COMPLETED
 
 **Goals:**
 - Build visual/GUI query builder
@@ -90,22 +90,31 @@ A frontend-only web application that allows users to input JSON data and query i
 - Sync between visual builder and direct input
 
 **Tasks:**
-- [ ] Design query builder UI
-- [ ] Implement field selector (for projections)
-- [ ] Add filter builder (conditions)
-- [ ] Implement operators (equals, greater than, contains, etc.)
-- [ ] Add count/length operations
-- [ ] Implement sorting controls
-- [ ] Create JMESPath query generator from UI
-- [ ] Add "Switch to Code" / "Switch to Builder" toggle
-- [ ] Sync between builder and direct query input
-- [ ] Add query preview
+- [x] Design query builder UI with mode toggle
+- [x] Implement field selector (for projections)
+- [x] Add filter builder (conditions)
+- [x] Implement operators (equals, greater than, contains, starts_with, ends_with, etc.)
+- [x] Add count/length operations
+- [x] Implement sorting controls (field and direction)
+- [x] Create JMESPath query generator from UI
+- [x] Add "Switch to Code" / "Switch to Builder" toggle
+- [x] Sync between builder and direct query input
+- [x] Add query preview with live updates
+- [x] Auto-detect fields from JSON data
+- [x] Complex query mode (combine all operations)
+- [x] Create queryBuilder.js module
+- [x] Update HTML for builder interface
+- [x] Add CSS for builder components
+- [x] Integrate with app.js
 
 **Deliverables:**
-- Functional visual query builder
-- Support for: select fields, filter, count, sort
-- Two-way sync with direct query input
-- Generated query preview
+- ✅ Functional visual query builder
+- ✅ Support for: select fields, filter, count, sort, complex queries
+- ✅ Mode toggle between Code and Builder views
+- ✅ Generated query preview with live updates
+- ✅ Auto field detection from JSON data
+- ✅ 9 filter operators
+- ✅ Dynamic field/filter row management
 
 ---
 
@@ -180,7 +189,7 @@ jsonAnalyser/
 - [x] JSON validation with error messages
 - [x] JSON pretty-print/format
 - [x] Direct JMESPath query input
-- [ ] Visual query builder (Week 3)
+- [x] Visual query builder
 - [x] Query execution
 - [x] Results display (JSON and Table views)
 
@@ -292,10 +301,11 @@ sort_by(data[?age > `25` && status == 'active'].name, &@)
 - **Status:** ✅ Completed
 - **Completion:** 100%
 
-### Week 3: Query Builder (Next Phase)
-- **Start Date:** TBD
-- **Status:** Not Started
-- **Completion:** 0%
+### Week 3: Query Builder
+- **Start Date:** 2025-11-17
+- **End Date:** 2025-11-17
+- **Status:** ✅ Completed
+- **Completion:** 100%
 
 ### Week 4: Polish
 - **Start Date:** TBD
@@ -305,6 +315,21 @@ sort_by(data[?age > `25` && status == 'active'].name, &@)
 ---
 
 ## Notes & Decisions Log
+
+### 2025-11-17 - Week 3 Completion
+- ✅ Week 3: Visual Query Builder completed successfully
+- Created queryBuilder.js module with complete visual query building logic
+- Implemented mode toggle between Code and Builder views
+- Added 5 operation types: Select, Filter, Count, Sort, Complex
+- Implemented dynamic field/filter row management
+- Auto-detects available fields from JSON data (up to 2 levels deep)
+- 9 filter operators: equals, not equals, greater/less than, contains, starts/ends with
+- Live query preview showing generated JMESPath
+- Integrated seamlessly with existing query engine
+- Updated HTML with builder interface
+- Added comprehensive CSS for builder components
+- Refreshes automatically when JSON data changes
+- All deliverables met and tested
 
 ### 2025-11-17 - Week 2 Completion
 - ✅ Week 2: Query Engine completed successfully

@@ -5,13 +5,16 @@
 
 import { JSONParser } from './jsonParser.js';
 import { QueryEngine } from './queryEngine.js';
+import { QueryBuilder } from './queryBuilder.js';
 import { debounce, copyToClipboard, showNotification } from './utils.js';
 
 class App {
     constructor() {
         this.jsonParser = new JSONParser();
         this.queryEngine = null; // Will be initialized after DOM is ready
+        this.queryBuilder = null; // Week 3: Visual query builder
         this.isDarkTheme = false;
+        this.queryMode = 'code'; // 'code' or 'builder'
 
         this.init();
     }
@@ -24,6 +27,10 @@ class App {
 
         // Initialize query engine (Week 2)
         this.queryEngine = new QueryEngine(this.jsonParser);
+
+        // Initialize query builder (Week 3)
+        this.queryBuilder = new QueryBuilder(this.queryEngine, this.jsonParser);
+        this.queryBuilder.init();
 
         // Load saved theme preference
         this.loadThemePreference();
@@ -112,6 +119,18 @@ class App {
             copyResultsBtn.addEventListener('click', () => this.handleCopyResults());
         }
 
+        // Mode Toggle (Week 3)
+        const codeModeBtn = document.getElementById('codeMode');
+        const builderModeBtn = document.getElementById('builderMode');
+
+        if (codeModeBtn) {
+            codeModeBtn.addEventListener('click', () => this.switchMode('code'));
+        }
+
+        if (builderModeBtn) {
+            builderModeBtn.addEventListener('click', () => this.switchMode('builder'));
+        }
+
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
 
@@ -142,6 +161,11 @@ class App {
     handleJSONInput() {
         const input = document.getElementById('jsonInput').value;
         this.jsonParser.parse(input);
+
+        // Refresh query builder when JSON changes (Week 3)
+        if (this.queryBuilder) {
+            this.queryBuilder.refresh();
+        }
     }
 
     /**
@@ -239,8 +263,14 @@ class App {
     handleClearQuery() {
         if (this.queryEngine) {
             this.queryEngine.clear();
-            showNotification('Query cleared', 'info');
         }
+
+        // Also clear the builder (Week 3)
+        if (this.queryBuilder) {
+            this.queryBuilder.reset();
+        }
+
+        showNotification('Query cleared', 'info');
     }
 
     /**
@@ -280,6 +310,39 @@ class App {
         } else {
             showNotification('Failed to copy results', 'error');
         }
+    }
+
+    /**
+     * Switch between Code and Builder modes (Week 3)
+     */
+    switchMode(mode) {
+        this.queryMode = mode;
+
+        const codeView = document.getElementById('codeView');
+        const builderView = document.getElementById('builderView');
+        const codeModeBtn = document.getElementById('codeMode');
+        const builderModeBtn = document.getElementById('builderMode');
+
+        if (mode === 'code') {
+            // Show code view
+            codeView?.classList.remove('hidden');
+            builderView?.classList.add('hidden');
+            codeModeBtn?.classList.add('active');
+            builderModeBtn?.classList.remove('active');
+        } else {
+            // Show builder view
+            codeView?.classList.add('hidden');
+            builderView?.classList.remove('hidden');
+            codeModeBtn?.classList.remove('active');
+            builderModeBtn?.classList.add('active');
+
+            // Refresh builder when switching to it
+            if (this.queryBuilder) {
+                this.queryBuilder.refresh();
+            }
+        }
+
+        showNotification(`Switched to ${mode} mode`, 'info');
     }
 
     /**

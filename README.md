@@ -27,9 +27,21 @@ A powerful, frontend-only web application for analyzing and querying JSON data d
 - ✅ Query keyboard shortcut (Shift+Enter)
 - ✅ Interactive query examples dropdown
 
+### Week 3: Visual Query Builder (Completed ✅)
+- ✅ Mode toggle between Code and Builder views
+- ✅ Visual query builder with drag-free interface
+- ✅ Select fields operation (projection)
+- ✅ Filter builder with multiple conditions
+- ✅ 9 operators (equals, not equals, greater/less than, contains, starts/ends with)
+- ✅ Count operation with optional filters
+- ✅ Sort controls (field selection + direction)
+- ✅ Complex queries (combine select, filter, and sort)
+- ✅ Live query preview showing generated JMESPath
+- ✅ Auto-detects available fields from JSON data
+- ✅ Apply query button to execute from builder
+
 ### Coming Soon
-- 🎨 Week 3: Visual Query Builder
-- 🚀 Week 4: Export, Save/Load queries, More sample datasets
+- 🚀 Week 4: Export (CSV/JSON), Save/Load queries, Query history, More sample datasets
 
 ## Getting Started
 
@@ -77,6 +89,20 @@ Click the theme button (🌙/☀️) in the header to switch between dark and li
 - `[0]` - Get first item
 - `[*].address.city` - Get nested field from all items
 
+#### Visual Query Builder (Week 3)
+1. **Switch to Builder**: Click the "🔧 Builder" button to enter visual mode
+2. **Select Operation**: Choose from Select, Filter, Count, Sort, or Complex
+3. **Configure Query**:
+   - **Select Fields**: Click "➕ Add Field" to choose fields to include
+   - **Filter Data**: Click "➕ Add Filter" to add conditions
+   - **Count Items**: Optionally add filters before counting
+   - **Sort Data**: Choose field and direction (ascending/descending)
+   - **Complex**: Combine all operations in one query
+4. **Preview Query**: See the generated JMESPath in real-time
+5. **Apply Query**: Click "✨ Apply Query" to execute
+
+The builder automatically detects available fields from your JSON data!
+
 ### Keyboard Shortcuts
 
 | Shortcut | Action |
@@ -109,6 +135,7 @@ jsonAnalyser/
 │   ├── app.js             # Main application controller
 │   ├── jsonParser.js      # JSON validation/parsing/display
 │   ├── queryEngine.js     # JMESPath query execution
+│   ├── queryBuilder.js    # Visual query builder logic
 │   └── utils.js           # Utility functions
 ├── lib/                   # Third-party libraries (CDN)
 └── examples/
@@ -128,11 +155,12 @@ Modern browsers with ES6 module support required.
 ### Current Status
 - **Week 1: Foundation** - ✅ Completed (2025-11-17)
 - **Week 2: Query Engine** - ✅ Completed (2025-11-17)
+- **Week 3: Visual Query Builder** - ✅ Completed (2025-11-17)
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for detailed development roadmap and progress.
 
 ### Next Steps
-Week 3 will add a visual query builder, allowing users to build queries through a graphical interface without writing JMESPath syntax directly.
+Week 4 will add export functionality (CSV/JSON), query save/load with history, and final polish with more sample datasets.
 
 ## Examples
 
@@ -201,8 +229,8 @@ MIT License - Feel free to use this project for learning or production.
 ## Roadmap
 - [x] Week 1: Foundation (JSON input, validation, formatting)
 - [x] Week 2: Query Engine (JMESPath integration, direct queries)
-- [ ] Week 3: Visual Query Builder (GUI for building queries)
-- [ ] Week 4: Export, Save/Load, Polish
+- [x] Week 3: Visual Query Builder (GUI for building queries)
+- [ ] Week 4: Export (CSV/JSON), Save/Load queries, Query history, Polish
 - [ ] Future: Advanced features (aggregations, schema validation, etc.)
 
 ---
