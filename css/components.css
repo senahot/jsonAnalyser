@@ -344,3 +344,133 @@
     color: var(--text-secondary);
     font-size: 0.875rem;
 }
+
+/* Query Editor (Week 2) */
+.query-section {
+    max-height: 250px !important;
+    min-height: 200px !important;
+}
+
+.query-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.query-editor {
+    flex: 1;
+    width: 100%;
+    padding: 0.75rem;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: var(--bg-editor);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    resize: none;
+    outline: none;
+    min-height: 100px;
+}
+
+.query-editor:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.query-editor::placeholder {
+    color: var(--text-tertiary);
+}
+
+.query-info {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+.info-link {
+    color: var(--text-secondary);
+}
+
+.info-link a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.info-link a:hover {
+    text-decoration: underline;
+}
+
+/* Results Table View (Week 2) */
+.result-view-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.result-view {
+    margin-top: 0.5rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.results-table thead {
+    background-color: var(--bg-secondary);
+    position: sticky;
+    top: 0;
+}
+
+.results-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.results-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.results-table tbody tr:hover {
+    background-color: var(--bg-secondary);
+}
+
+.results-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.null-value {
+    color: var(--json-null);
+    font-style: italic;
+}
+
+.object-value {
+    color: var(--text-secondary);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.8125rem;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .results-table {
+        font-size: 0.8125rem;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 0.5rem;
+    }
+}

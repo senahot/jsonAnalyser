@@ -79,28 +79,63 @@ Example:
 
             <!-- Right Panel: Query & Results -->
             <section class="panel output-panel">
-                <!-- Query Section (Will be expanded in Week 2) -->
+                <!-- Query Section -->
                 <div class="panel-header">
-                    <h2>Query (Coming in Week 2)</h2>
+                    <h2>JMESPath Query</h2>
+                    <div class="panel-actions">
+                        <select id="exampleQuerySelect" class="form-select" style="max-width: 200px;">
+                            <option value="">Load Example...</option>
+                        </select>
+                        <button id="executeQueryBtn" class="btn btn-primary" title="Execute query">
+                            ▶️ Run
+                        </button>
+                        <button id="clearQueryBtn" class="btn btn-secondary" title="Clear query">
+                            🗑️ Clear
+                        </button>
+                    </div>
                 </div>
-                <div class="panel-body query-placeholder">
-                    <p class="info-text">Query interface will be added in Week 2</p>
+
+                <div class="panel-body query-section">
+                    <div class="query-input-container">
+                        <textarea
+                            id="queryInput"
+                            class="query-editor"
+                            placeholder='Enter JMESPath query...
+
+Examples:
+@ - Get all data
+[*].name - Get all names
+[?age > `25`] - Filter by age
+length(@) - Count items
+
+Try selecting an example from the dropdown above!'
+                            spellcheck="false"
+                        ></textarea>
+                    </div>
+
+                    <div id="queryError" class="error-message hidden"></div>
+
+                    <div class="query-info">
+                        <span class="info-link">
+                            📖 <a href="https://jmespath.org/tutorial.html" target="_blank" rel="noopener">JMESPath Tutorial</a>
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Results Section -->
                 <div class="panel-header">
-                    <h2>Output</h2>
+                    <h2>Query Results</h2>
                     <div class="panel-actions">
-                        <button id="copyOutputBtn" class="btn btn-secondary" title="Copy output" disabled>
+                        <button id="copyResultsBtn" class="btn btn-secondary" title="Copy results" disabled>
                             📋 Copy
                         </button>
                     </div>
                 </div>
 
                 <div class="panel-body">
-                    <div id="outputContainer" class="output-container">
+                    <div id="resultsContainer" class="output-container">
                         <div class="placeholder-message">
-                            <p>👈 Enter JSON data on the left to get started</p>
+                            <p>💡 Enter a JMESPath query above to see results</p>
                         </div>
                     </div>
                 </div>
@@ -110,11 +145,14 @@ Example:
         <!-- Footer -->
         <footer class="app-footer">
             <p>
-                JSON Analyser v0.1 | Week 1: Foundation |
-                <span id="projectStatus">Building core functionality...</span>
+                JSON Analyser v0.2 | Week 2: Query Engine |
+                <span id="projectStatus">Query your JSON data with JMESPath!</span>
             </p>
         </footer>
     </div>
+
+    <!-- JMESPath Library -->
+    <script src="https://cdn.jsdelivr.net/npm/jmespath@0.16.0/jmespath.min.js"></script>
 
     <!-- JavaScript Modules -->
     <script type="module" src="js/app.js"></script>

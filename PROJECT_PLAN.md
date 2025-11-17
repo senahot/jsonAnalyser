@@ -46,8 +46,8 @@ A frontend-only web application that allows users to input JSON data and query i
 
 ---
 
-### 📋 Week 2: Query Engine
-**Status:** PENDING
+### 📋 Week 2: Query Engine (COMPLETED)
+**Status:** ✅ COMPLETED
 
 **Goals:**
 - Integrate JMESPath library
@@ -56,22 +56,27 @@ A frontend-only web application that allows users to input JSON data and query i
 - Handle query errors gracefully
 
 **Tasks:**
-- [ ] Download and integrate jmespath.js library
-- [ ] Create query engine module
-- [ ] Add query input textarea
-- [ ] Implement query execution
-- [ ] Add result display area
-- [ ] Implement error handling for invalid queries
-- [ ] Add example queries dropdown
-- [ ] Create results formatting (table view, JSON view)
-- [ ] Add copy results functionality
-- [ ] Test with various query patterns
+- [x] Download and integrate jmespath.js library (via CDN)
+- [x] Create query engine module (queryEngine.js)
+- [x] Add query input textarea with placeholder examples
+- [x] Implement query execution with real-time updates
+- [x] Add result display area with JSON/Table toggle
+- [x] Implement error handling for invalid queries
+- [x] Add example queries dropdown (15 examples)
+- [x] Create results formatting (table view, JSON view)
+- [x] Add copy results functionality
+- [x] Test with various query patterns
+- [x] Add keyboard shortcut (Shift+Enter)
+- [x] Update app.js to integrate query engine
 
 **Deliverables:**
-- Working JMESPath query execution
-- Direct query language input
-- Results display with formatting
-- Query examples library
+- ✅ Working JMESPath query execution
+- ✅ Direct query language input with auto-execution
+- ✅ Results display with JSON and Table views
+- ✅ Query examples library (15 examples)
+- ✅ Error handling with helpful messages
+- ✅ Copy results to clipboard
+- ✅ Keyboard shortcuts
 
 ---
 
@@ -174,19 +179,22 @@ jsonAnalyser/
 - [x] JSON file upload
 - [x] JSON validation with error messages
 - [x] JSON pretty-print/format
-- [ ] Direct JMESPath query input (Week 2)
+- [x] Direct JMESPath query input
 - [ ] Visual query builder (Week 3)
-- [ ] Query execution (Week 2)
-- [ ] Results display (Week 2)
+- [x] Query execution
+- [x] Results display (JSON and Table views)
 
 ### Query Operations
-- [ ] Select specific fields (projection)
-- [ ] Filter by conditions
-- [ ] Count/length operations
-- [ ] Sort results
-- [ ] Nested object traversal
-- [ ] Array operations
-- [ ] Multiple conditions (AND/OR)
+- [x] Select specific fields (projection)
+- [x] Filter by conditions
+- [x] Count/length operations
+- [x] Sort results
+- [x] Nested object traversal
+- [x] Array operations
+- [x] Multiple conditions (AND/OR)
+- [x] Max/min operations
+- [x] Array contains operations
+- [x] Unique values
 
 ### User Experience
 - [ ] Export to JSON (Week 4)
@@ -278,12 +286,13 @@ sort_by(data[?age > `25` && status == 'active'].name, &@)
 - **Status:** ✅ Completed
 - **Completion:** 100%
 
-### Week 2: Query Engine (Next Phase)
-- **Start Date:** TBD
-- **Status:** Not Started
-- **Completion:** 0%
+### Week 2: Query Engine
+- **Start Date:** 2025-11-17
+- **End Date:** 2025-11-17
+- **Status:** ✅ Completed
+- **Completion:** 100%
 
-### Week 3: Query Builder
+### Week 3: Query Builder (Next Phase)
 - **Start Date:** TBD
 - **Status:** Not Started
 - **Completion:** 0%
@@ -296,6 +305,18 @@ sort_by(data[?age > `25` && status == 'active'].name, &@)
 ---
 
 ## Notes & Decisions Log
+
+### 2025-11-17 - Week 2 Completion
+- ✅ Week 2: Query Engine completed successfully
+- Integrated JMESPath via CDN (jmespath@0.16.0)
+- Created queryEngine.js module with full query execution
+- Added 15 example queries covering common use cases
+- Implemented dual view: JSON and Table for results
+- Real-time query execution (debounced for performance)
+- Added keyboard shortcut: Shift+Enter to run queries
+- Error handling for invalid queries with helpful messages
+- Updated HTML, CSS, and app.js for query functionality
+- All deliverables met and tested
 
 ### 2025-11-17 - Week 1 Completion
 - ✅ Week 1: Foundation completed successfully

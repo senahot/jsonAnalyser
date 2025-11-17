@@ -17,10 +17,19 @@ A powerful, frontend-only web application for analyzing and querying JSON data d
 - ✅ Responsive design
 - ✅ Keyboard shortcuts
 
+### Week 2: Query Engine (Completed ✅)
+- ✅ JMESPath query language integration
+- ✅ Direct query input with real-time execution
+- ✅ 15+ example queries (filter, select, count, sort, etc.)
+- ✅ Query error handling with helpful messages
+- ✅ Results display with JSON and Table views
+- ✅ Copy query results to clipboard
+- ✅ Query keyboard shortcut (Shift+Enter)
+- ✅ Interactive query examples dropdown
+
 ### Coming Soon
-- 📋 Week 2: Query Engine (JMESPath integration, direct query input)
 - 🎨 Week 3: Visual Query Builder
-- 🚀 Week 4: Export, Save/Load queries, Sample datasets
+- 🚀 Week 4: Export, Save/Load queries, More sample datasets
 
 ## Getting Started
 
@@ -51,11 +60,29 @@ Click the "📋 Copy" button to copy the formatted JSON to your clipboard.
 #### Theme Toggle
 Click the theme button (🌙/☀️) in the header to switch between dark and light themes.
 
+#### Query JSON Data (Week 2)
+1. **Enter JSON**: First, add your JSON data on the left panel
+2. **Write Query**: Enter a JMESPath query in the query input area
+3. **Run Query**: Click "▶️ Run" or press `Shift+Enter` to execute
+4. **View Results**: See results in JSON or Table format
+5. **Example Queries**: Select from the dropdown to try pre-built queries
+
+##### Example JMESPath Queries
+- `@` - Get all data
+- `[*].name` - Extract all names from array
+- `[?age > \`25\`]` - Filter items where age > 25
+- `[?status == 'active']` - Filter by status
+- `length(@)` - Count total items
+- `sort_by(@, &age)` - Sort by age
+- `[0]` - Get first item
+- `[*].address.city` - Get nested field from all items
+
 ### Keyboard Shortcuts
 
 | Shortcut | Action |
 |----------|--------|
-| `Ctrl/Cmd + Enter` | Format JSON |
+| `Ctrl/Cmd + Enter` | Format JSON (in JSON input) |
+| `Shift + Enter` | Execute Query (in query input) |
 | `Ctrl/Cmd + K` | Clear input |
 | `Ctrl/Cmd + /` | Toggle theme |
 
@@ -65,6 +92,7 @@ Click the theme button (🌙/☀️) in the header to switch between dark and li
 - **HTML5**: Semantic markup
 - **CSS3**: Custom properties, Grid, Flexbox
 - **Vanilla JavaScript**: ES6 modules, modern APIs
+- **JMESPath**: Query language for JSON
 - **No frameworks**: Lightweight and fast
 
 ### File Structure
@@ -80,9 +108,11 @@ jsonAnalyser/
 ├── js/
 │   ├── app.js             # Main application controller
 │   ├── jsonParser.js      # JSON validation/parsing/display
+│   ├── queryEngine.js     # JMESPath query execution
 │   └── utils.js           # Utility functions
-├── lib/                   # Third-party libraries (Week 2+)
-└── examples/              # Sample datasets (Week 4)
+├── lib/                   # Third-party libraries (CDN)
+└── examples/
+    └── users.json         # Sample user dataset
 ```
 
 ### Browser Support
@@ -96,32 +126,57 @@ Modern browsers with ES6 module support required.
 ## Development
 
 ### Current Status
-**Week 1: Foundation** - ✅ Completed (2025-11-17)
+- **Week 1: Foundation** - ✅ Completed (2025-11-17)
+- **Week 2: Query Engine** - ✅ Completed (2025-11-17)
 
 See [PROJECT_PLAN.md](PROJECT_PLAN.md) for detailed development roadmap and progress.
 
 ### Next Steps
-Week 2 will add the query engine with JMESPath support, allowing users to filter and transform JSON data using powerful query syntax.
+Week 3 will add a visual query builder, allowing users to build queries through a graphical interface without writing JMESPath syntax directly.
 
 ## Examples
 
-### Valid JSON Input
+### JSON Input Example
 ```json
 [
   {
     "name": "John Doe",
     "age": 30,
     "email": "john@example.com",
-    "status": "active"
+    "status": "active",
+    "skills": ["JavaScript", "Python"]
   },
   {
     "name": "Jane Smith",
     "age": 25,
     "email": "jane@example.com",
-    "status": "inactive"
+    "status": "inactive",
+    "skills": ["Design", "UX"]
   }
 ]
 ```
+
+### Query Examples
+
+#### Get all names
+**Query:** `[*].name`
+**Result:** `["John Doe", "Jane Smith"]`
+
+#### Filter active users
+**Query:** `[?status == 'active']`
+**Result:** Array of active users only
+
+#### Get names of users over 25
+**Query:** `[?age > \`25\`].name`
+**Result:** `["John Doe"]`
+
+#### Count total users
+**Query:** `length(@)`
+**Result:** `2`
+
+#### Select specific fields
+**Query:** `[*].{name: name, email: email}`
+**Result:** Array of objects with only name and email
 
 ### Statistics Displayed
 - **Size**: File size in bytes/KB/MB
@@ -145,8 +200,8 @@ MIT License - Feel free to use this project for learning or production.
 
 ## Roadmap
 - [x] Week 1: Foundation (JSON input, validation, formatting)
-- [ ] Week 2: Query Engine (JMESPath integration)
-- [ ] Week 3: Visual Query Builder
+- [x] Week 2: Query Engine (JMESPath integration, direct queries)
+- [ ] Week 3: Visual Query Builder (GUI for building queries)
 - [ ] Week 4: Export, Save/Load, Polish
 - [ ] Future: Advanced features (aggregations, schema validation, etc.)
 
