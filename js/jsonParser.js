@@ -9,7 +9,6 @@ export class JSONParser {
     constructor() {
         this.currentJSON = null;
         this.jsonInput = document.getElementById('jsonInput');
-        this.outputContainer = document.getElementById('outputContainer');
         this.errorDisplay = document.getElementById('jsonError');
         this.statsDisplay = document.getElementById('jsonStats');
     }
@@ -23,7 +22,6 @@ export class JSONParser {
         if (!input || input.trim() === '') {
             this.showError('');
             this.currentJSON = null;
-            this.displayOutput(null);
             this.updateStats(null);
             return false;
         }
@@ -33,13 +31,11 @@ export class JSONParser {
         if (result.valid) {
             this.currentJSON = result.data;
             this.showError('');
-            this.displayOutput(this.currentJSON);
             this.updateStats(input);
             return true;
         } else {
             this.currentJSON = null;
             this.showError(result.error);
-            this.displayOutput(null);
             this.updateStats(null);
             return false;
         }
@@ -64,40 +60,6 @@ export class JSONParser {
 
         this.errorDisplay.classList.remove('hidden');
         this.errorDisplay.textContent = error;
-    }
-
-    /**
-     * Display formatted JSON output
-     * @param {*} data - JSON data to display
-     */
-    displayOutput(data) {
-        // Skip if outputContainer doesn't exist (query-focused design)
-        if (!this.outputContainer) {
-            return;
-        }
-
-        if (!data) {
-            this.outputContainer.innerHTML = `
-                <div class="placeholder-message">
-                    <p>👈 Enter JSON data on the left to get started</p>
-                </div>
-            `;
-            return;
-        }
-
-        const formatted = formatJSON(data, 2);
-        const highlighted = syntaxHighlight(formatted);
-
-        this.outputContainer.innerHTML = `
-            <div class="badge badge-success mb-2">✓ Valid JSON</div>
-            <pre class="json-formatted">${highlighted}</pre>
-        `;
-
-        // Enable copy button
-        const copyBtn = document.getElementById('copyOutputBtn');
-        if (copyBtn) {
-            copyBtn.disabled = false;
-        }
     }
 
     /**
@@ -157,13 +119,7 @@ export class JSONParser {
         this.jsonInput.value = '';
         this.currentJSON = null;
         this.showError('');
-        this.displayOutput(null);
         this.updateStats(null);
-
-        const copyBtn = document.getElementById('copyOutputBtn');
-        if (copyBtn) {
-            copyBtn.disabled = true;
-        }
     }
 
     /**
@@ -210,14 +166,5 @@ export class JSONParser {
      */
     getCurrentJSON() {
         return this.currentJSON;
-    }
-
-    /**
-     * Get formatted output text
-     * @returns {string} Formatted JSON string
-     */
-    getOutputText() {
-        if (!this.currentJSON) return '';
-        return formatJSON(this.currentJSON, 2);
     }
 }
