@@ -17,6 +17,15 @@
                 <p class="tagline">Query and analyze JSON data in your browser</p>
             </div>
             <div class="header-actions">
+                <button id="savedQueriesBtn" class="btn btn-secondary" title="Saved Queries">
+                    💾 Saved
+                </button>
+                <button id="historyBtn" class="btn btn-secondary" title="Query History">
+                    📜 History
+                </button>
+                <button id="helpBtn" class="btn btn-secondary" title="Help">
+                    ❓ Help
+                </button>
                 <button id="themeToggle" class="btn btn-icon" title="Toggle Theme">
                     🌙
                 </button>
@@ -95,6 +104,9 @@ Example:
                         <select id="exampleQuerySelect" class="form-select" style="max-width: 200px;">
                             <option value="">Load Example...</option>
                         </select>
+                        <button id="saveQueryBtn" class="btn btn-secondary" title="Save query">
+                            💾 Save
+                        </button>
                         <button id="executeQueryBtn" class="btn btn-primary" title="Execute query">
                             ▶️ Run
                         </button>
@@ -196,6 +208,12 @@ Try selecting an example from the dropdown above!'
                 <div class="panel-header">
                     <h2>Query Results</h2>
                     <div class="panel-actions">
+                        <button id="exportJSONBtn" class="btn btn-secondary" title="Export to JSON" disabled>
+                            💾 Export JSON
+                        </button>
+                        <button id="exportCSVBtn" class="btn btn-secondary" title="Export to CSV" disabled>
+                            📊 Export CSV
+                        </button>
                         <button id="copyResultsBtn" class="btn btn-secondary" title="Copy results" disabled>
                             📋 Copy
                         </button>
@@ -215,10 +233,156 @@ Try selecting an example from the dropdown above!'
         <!-- Footer -->
         <footer class="app-footer">
             <p>
-                JSON Analyser v0.3 | Week 3: Visual Query Builder |
-                <span id="projectStatus">Build queries visually or with code!</span>
+                JSON Analyser v0.4 | Week 4: Export & Polish |
+                <span id="projectStatus">Full-featured JSON query tool!</span>
             </p>
         </footer>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Save Query Modal -->
+    <div id="saveQueryModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Save Query</h3>
+                <button class="modal-close" data-modal="saveQueryModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Query Name *</label>
+                    <input type="text" id="queryName" class="form-input" placeholder="Enter query name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description (optional)</label>
+                    <textarea id="queryDescription" class="form-input" rows="3" placeholder="Enter description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Query</label>
+                    <code id="queryToSave" class="code-block"></code>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal="saveQueryModal">Cancel</button>
+                <button id="confirmSaveQuery" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Saved Queries Modal -->
+    <div id="savedQueriesModal" class="modal hidden">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Saved Queries</h3>
+                <button class="modal-close" data-modal="savedQueriesModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="savedQueriesList" class="saved-queries-list">
+                    <p class="info-text">No saved queries yet</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal="savedQueriesModal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal hidden">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Query History</h3>
+                <button class="modal-close" data-modal="historyModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div id="historyList" class="history-list">
+                    <p class="info-text">No query history yet</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="clearHistoryBtn" class="btn btn-error">Clear History</button>
+                <button class="btn btn-secondary" data-modal="historyModal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Help & Documentation</h3>
+                <button class="modal-close" data-modal="helpModal">✕</button>
+            </div>
+            <div class="modal-body help-content">
+                <section class="help-section">
+                    <h4>Getting Started</h4>
+                    <p>JSON Analyser lets you query and analyze JSON data directly in your browser.</p>
+                    <ol>
+                        <li>Paste or upload JSON data on the left panel</li>
+                        <li>Write queries using JMESPath or use the visual builder</li>
+                        <li>View results in JSON or Table format</li>
+                        <li>Export results to JSON or CSV</li>
+                    </ol>
+                </section>
+
+                <section class="help-section">
+                    <h4>Query Modes</h4>
+                    <p><strong>💻 Code Mode:</strong> Write JMESPath queries directly</p>
+                    <p><strong>🔧 Builder Mode:</strong> Build queries visually without code</p>
+                </section>
+
+                <section class="help-section">
+                    <h4>Example Queries</h4>
+                    <ul>
+                        <li><code>@</code> - Get all data</li>
+                        <li><code>[*].name</code> - Get all names from array</li>
+                        <li><code>[?age > `25`]</code> - Filter where age > 25</li>
+                        <li><code>length(@)</code> - Count items</li>
+                        <li><code>sort_by(@, &age)</code> - Sort by age</li>
+                    </ul>
+                </section>
+
+                <section class="help-section">
+                    <h4>Keyboard Shortcuts</h4>
+                    <ul>
+                        <li><kbd>Ctrl/Cmd + Enter</kbd> - Format JSON (in JSON input)</li>
+                        <li><kbd>Shift + Enter</kbd> - Execute query (in query input)</li>
+                        <li><kbd>Ctrl/Cmd + K</kbd> - Clear input</li>
+                        <li><kbd>Ctrl/Cmd + /</kbd> - Toggle theme</li>
+                    </ul>
+                </section>
+
+                <section class="help-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>✅ Save and load queries</li>
+                        <li>✅ Query history</li>
+                        <li>✅ Export to JSON/CSV</li>
+                        <li>✅ Visual query builder</li>
+                        <li>✅ Dark/light themes</li>
+                        <li>✅ Sample datasets included</li>
+                    </ul>
+                </section>
+
+                <section class="help-section">
+                    <h4>Sample Datasets</h4>
+                    <p>Load example data from <code>/examples/</code>:</p>
+                    <ul>
+                        <li><code>users.json</code> - User data with profiles</li>
+                        <li><code>products.json</code> - Product catalog</li>
+                        <li><code>orders.json</code> - Order history</li>
+                    </ul>
+                </section>
+
+                <section class="help-section">
+                    <h4>Learn More</h4>
+                    <p>Visit <a href="https://jmespath.org" target="_blank">jmespath.org</a> for full JMESPath documentation</p>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-modal="helpModal">Close</button>
+            </div>
+        </div>
     </div>
 
     <!-- JMESPath Library -->

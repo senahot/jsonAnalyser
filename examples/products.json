@@ -1,0 +1,130 @@
+[
+  {
+    "id": 101,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 29.99,
+    "stock": 150,
+    "rating": 4.5,
+    "brand": "TechCo",
+    "inStock": true,
+    "tags": ["wireless", "mouse", "computer"],
+    "specs": {
+      "color": "Black",
+      "warranty": "1 year",
+      "connectivity": "Bluetooth"
+    }
+  },
+  {
+    "id": 102,
+    "name": "USB-C Cable",
+    "category": "Accessories",
+    "price": 12.99,
+    "stock": 300,
+    "rating": 4.2,
+    "brand": "ConnectPro",
+    "inStock": true,
+    "tags": ["cable", "usb-c", "charging"],
+    "specs": {
+      "length": "6 feet",
+      "warranty": "6 months",
+      "type": "Fast Charging"
+    }
+  },
+  {
+    "id": 103,
+    "name": "Laptop Stand",
+    "category": "Accessories",
+    "price": 45.00,
+    "stock": 75,
+    "rating": 4.8,
+    "brand": "ErgoDesk",
+    "inStock": true,
+    "tags": ["stand", "laptop", "ergonomic"],
+    "specs": {
+      "material": "Aluminum",
+      "warranty": "2 years",
+      "adjustable": true
+    }
+  },
+  {
+    "id": 104,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 89.99,
+    "stock": 45,
+    "rating": 4.7,
+    "brand": "TypeMaster",
+    "inStock": true,
+    "tags": ["keyboard", "mechanical", "rgb"],
+    "specs": {
+      "switches": "Cherry MX Brown",
+      "warranty": "2 years",
+      "backlit": "RGB"
+    }
+  },
+  {
+    "id": 105,
+    "name": "Webcam HD",
+    "category": "Electronics",
+    "price": 65.50,
+    "stock": 0,
+    "rating": 4.3,
+    "brand": "ViewCam",
+    "inStock": false,
+    "tags": ["webcam", "hd", "streaming"],
+    "specs": {
+      "resolution": "1080p",
+      "warranty": "1 year",
+      "microphone": "Built-in"
+    }
+  },
+  {
+    "id": 106,
+    "name": "Desk Lamp",
+    "category": "Office",
+    "price": 34.99,
+    "stock": 120,
+    "rating": 4.6,
+    "brand": "BrightLight",
+    "inStock": true,
+    "tags": ["lamp", "led", "desk"],
+    "specs": {
+      "type": "LED",
+      "warranty": "1 year",
+      "dimmable": true
+    }
+  },
+  {
+    "id": 107,
+    "name": "Monitor 27 inch",
+    "category": "Electronics",
+    "price": 299.99,
+    "stock": 25,
+    "rating": 4.9,
+    "brand": "DisplayPro",
+    "inStock": true,
+    "tags": ["monitor", "display", "4k"],
+    "specs": {
+      "size": "27 inches",
+      "warranty": "3 years",
+      "resolution": "4K UHD"
+    }
+  },
+  {
+    "id": 108,
+    "name": "Notebook",
+    "category": "Office",
+    "price": 8.99,
+    "stock": 500,
+    "rating": 4.4,
+    "brand": "PaperCo",
+    "inStock": true,
+    "tags": ["notebook", "paper", "writing"],
+    "specs": {
+      "pages": "200",
+      "warranty": "None",
+      "size": "A5"
+    }
+  }
+]
