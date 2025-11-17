@@ -50,6 +50,12 @@ export class JSONParser {
      * @param {string} error - Error message
      */
     showError(error) {
+        // Skip if errorDisplay doesn't exist
+        if (!this.errorDisplay) {
+            console.error('Error display element not found:', error);
+            return;
+        }
+
         if (!error) {
             this.errorDisplay.classList.add('hidden');
             this.errorDisplay.textContent = '';
@@ -65,6 +71,11 @@ export class JSONParser {
      * @param {*} data - JSON data to display
      */
     displayOutput(data) {
+        // Skip if outputContainer doesn't exist (query-focused design)
+        if (!this.outputContainer) {
+            return;
+        }
+
         if (!data) {
             this.outputContainer.innerHTML = `
                 <div class="placeholder-message">
@@ -94,6 +105,11 @@ export class JSONParser {
      * @param {string} input - Raw JSON string
      */
     updateStats(input) {
+        // Skip if statsDisplay doesn't exist
+        if (!this.statsDisplay) {
+            return;
+        }
+
         if (!input || !this.currentJSON) {
             this.statsDisplay.textContent = '';
             return;
