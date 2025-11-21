@@ -1,84 +1,176 @@
-/* Theme Variables */
+/* Modern Theme Variables with Gradients */
 
 :root {
-    /* Light Theme Colors */
+    /* Light Theme Colors - Modern Palette */
     --bg-primary: #ffffff;
-    --bg-secondary: #f5f7fa;
-    --bg-tertiary: #e9ecef;
-    --bg-editor: #fafbfc;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+    --bg-editor: #fafbfd;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --bg-success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
-    --text-primary: #1a1a1a;
-    --text-secondary: #666666;
-    --text-tertiary: #999999;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #94a3b8;
 
-    --border-color: #d1d5db;
-    --border-focus: #3b82f6;
+    --border-color: #e2e8f0;
+    --border-focus: #8b5cf6;
 
-    --accent-primary: #3b82f6;
-    --accent-hover: #2563eb;
-    --accent-light: #dbeafe;
+    /* Modern Vibrant Colors */
+    --accent-primary: #8b5cf6;
+    --accent-hover: #7c3aed;
+    --accent-light: #ede9fe;
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
     --success: #10b981;
     --success-light: #d1fae5;
+    --success-gradient: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+
     --error: #ef4444;
     --error-light: #fee2e2;
+    --error-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+
     --warning: #f59e0b;
     --warning-light: #fef3c7;
 
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    /* Modern Shadows with Depth */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.3);
+    --shadow-glow-hover: 0 0 40px rgba(139, 92, 246, 0.4);
 
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    /* Modern Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
 
-    /* JSON Syntax Highlighting */
-    --json-key: #0066cc;
-    --json-string: #2aa198;
-    --json-number: #d14;
-    --json-boolean: #aa5500;
-    --json-null: #999999;
+    /* Glass Morphism */
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    /* JSON Syntax Highlighting - Enhanced */
+    --json-key: #8b5cf6;
+    --json-string: #10b981;
+    --json-number: #f59e0b;
+    --json-boolean: #3b82f6;
+    --json-null: #94a3b8;
 }
 
-/* Dark Theme */
+/* Dark Theme - Cyberpunk Inspired */
 body.dark-theme {
-    --bg-primary: #1a1a2e;
-    --bg-secondary: #16213e;
-    --bg-tertiary: #0f1419;
-    --bg-editor: #0d1117;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-editor: #0a0f1e;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --bg-success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 
-    --text-primary: #e6e6e6;
-    --text-secondary: #b3b3b3;
-    --text-tertiary: #808080;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #64748b;
 
-    --border-color: #30363d;
-    --border-focus: #58a6ff;
+    --border-color: #334155;
+    --border-focus: #a78bfa;
 
-    --accent-primary: #58a6ff;
-    --accent-hover: #79c0ff;
-    --accent-light: #1f2937;
+    --accent-primary: #a78bfa;
+    --accent-hover: #c4b5fd;
+    --accent-light: #1e1b4b;
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 
-    --success: #3fb950;
-    --success-light: #1a3a27;
-    --error: #f85149;
-    --error-light: #3a1a1a;
-    --warning: #d29922;
-    --warning-light: #3a2a1a;
+    --success: #34d399;
+    --success-light: #064e3b;
+    --success-gradient: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
 
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --error: #f87171;
+    --error-light: #7f1d1d;
+    --error-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
 
-    /* JSON Syntax Highlighting for Dark */
-    --json-key: #79c0ff;
-    --json-string: #a5d6ff;
-    --json-number: #ff9492;
-    --json-boolean: #ffa657;
-    --json-null: #8b949e;
+    --warning: #fbbf24;
+    --warning-light: #78350f;
+
+    /* Dark Theme Shadows with Glow */
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px 0 rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    --shadow-glow: 0 0 30px rgba(167, 139, 250, 0.5);
+    --shadow-glow-hover: 0 0 40px rgba(167, 139, 250, 0.7);
+
+    /* Glass Morphism Dark */
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    /* JSON Syntax Highlighting for Dark - Neon Style */
+    --json-key: #c4b5fd;
+    --json-string: #6ee7b7;
+    --json-number: #fcd34d;
+    --json-boolean: #93c5fd;
+    --json-null: #94a3b8;
 }
 
-/* Transitions */
+/* Smooth Transitions with Spring Effect */
 * {
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom Scrollbar - Modern Style */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) var(--bg-secondary);
+}
+
+/* Selection Color */
+::selection {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+::-moz-selection {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+/* Animated Background Pattern (Optional) */
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-animated {
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
 }
